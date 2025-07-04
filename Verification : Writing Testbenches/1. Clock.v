@@ -1,15 +1,10 @@
-module top_module (
-    input clk,
-    input a,
-    output [3:0] q );
+module top_module ( );
+    reg clk;
+    dut t(.clk(clk));
     
-    always @(posedge clk) begin
-        if(a)
-            q = 4 ;
-        else if(q != 6)
-            q = q + 1;
-        else
-            q = 0;
+    initial begin
+        clk = 0;
     end
-
+    always #5 clk = ~clk;
+    
 endmodule
